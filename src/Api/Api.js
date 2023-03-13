@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const sendTask=async(data)=>{
     try {
-       await axios.post("http://192.168.118.246:8000/addTask",data)
+       await axios.post("https://tasklistserver-api.onrender.com/addTask",data)
      
         
     } catch (error) {
@@ -13,7 +13,7 @@ export const sendTask=async(data)=>{
 
 export const getTask=async(data)=>{
     try {
-        const taskList= await axios.post("http://192.168.118.246:8000/getTasks",data)
+        const taskList= await axios.post("https://tasklistserver-api.onrender.com/getTasks",data)
         
         return taskList.data
     } catch (error) {
@@ -24,7 +24,7 @@ export const getTask=async(data)=>{
 
 export const updateTask=async(data)=>{
     try {
-        await axios.put("http://192.168.118.246:8000/updateTask",data)
+        await axios.put("https://tasklistserver-api.onrender.com/updateTask",data)
     } catch (error) {
         console.log(error);
     }
@@ -32,7 +32,7 @@ export const updateTask=async(data)=>{
 
 export const deleteTask =async(data)=>{
     try {
-        await axios.post("http://192.168.118.246:8000/deleteTask",data)
+        await axios.post("https://tasklistserver-api.onrender.com/deleteTask",data)
         console.log(data);
     } catch (error) {
         console.log(error);
