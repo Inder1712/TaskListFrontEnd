@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AccountContext } from "../../Context/Context";
 export default function LoginDialogue() {
   
-const {setAccount,account}=useContext(AccountContext)
+const {setAccount}=useContext(AccountContext)
   function loginSuccess(res){
     setAccount(jwt_decode(res.credential));
     
