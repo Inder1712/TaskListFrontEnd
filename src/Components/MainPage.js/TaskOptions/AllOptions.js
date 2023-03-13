@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import  { AccountContext } from "../../../Context/Context";
 export default function AllOptions() {
-  const{setListName,listName}=useContext(AccountContext)
+  const{setListName}=useContext(AccountContext)
   const [optionsCount, setOptionsCount] = useState(1);
   function starIcon() {
     setOptionsCount(1);
@@ -13,9 +13,10 @@ export default function AllOptions() {
     setOptionsCount(2);
     setListName("My tasks")
   }
-  // function newList() {
-  //   setOptionsCount(3);
-  // }
+  function completedList() {
+    setOptionsCount(3);
+    setListName("Completed")
+  }
   return (
     <div className="h-[100%] w-[100%] flex">
       <button
@@ -37,16 +38,17 @@ export default function AllOptions() {
           <div className="h-[10%] w-[70%] bg-blue-900"></div>
         )}
       </button>
-
-      {/* <button
-        onClick={newList}
+      <button
+        onClick={completedList}
         className={`w-[30%] flex flex-col justify-center items-center ${optionsCount===3?"text-blue-900":"text-black"}`}
       >
-        + New List
+        Completed
         {optionsCount === 3 && (
-          <div className="h-[10%] w-[70%] bg-blue-900"></div>
+          <div className="h-[10%] w-[90%] bg-blue-900"></div>
         )}
-      </button> */}
+      </button>
+
+     
     </div>
   );
 }

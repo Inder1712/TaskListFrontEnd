@@ -1,5 +1,6 @@
 import axios from "axios"
 
+
 export const sendTask=async(data)=>{
     try {
        await axios.post("https://tasklistserver-api.onrender.com/addTask",data)
@@ -30,6 +31,15 @@ export const updateTask=async(data)=>{
     }
 }
 
+export const completeTask =async(data)=>{
+    try {
+        await axios.put("https://tasklistserver-api.onrender.com/completeTask",data)
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
+
+}
 export const deleteTask =async(data)=>{
     try {
         await axios.post("https://tasklistserver-api.onrender.com/deleteTask",data)

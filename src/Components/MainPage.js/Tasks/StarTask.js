@@ -7,9 +7,9 @@ import { completeTask, updateTask } from '../../../Api/Api';
 import TaskDetails from './TaskDetails';
 import { AccountContext } from '../../../Context/Context';
 
-export default function MapTask({taskList}) {
+export default function StarTask({taskList}) {
   
-    const [star, setStar] = useState(taskList.star);
+    const [ setStar] = useState(taskList.star);
     const [toggleDetails,setToggleDetails]=useState(false)
     const {setTaskFlag,setSpinner}=useContext(AccountContext)
 
@@ -56,10 +56,11 @@ export default function MapTask({taskList}) {
                 {taskList.taskName}
             </div>
             <div className='w-[10%]'>
-                <button onClick={toggleStar}>
-                    {star ? <StarRateIcon/> :<StarBorderIcon/> }
+                <button>
+                 <StarRateIcon/>  
                 </button>
             </div>
         </div>
     );
 }
+

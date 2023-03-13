@@ -9,7 +9,7 @@ import { AccountContext } from "../../../Context/Context";
 import { sendTask } from "../../../Api/Api";
 
 export default function InputTab({ closeInput }) {
-  const { account, setTaskFlag } = useContext(AccountContext);
+  const { account, setTaskFlag, setSpinner } = useContext(AccountContext);
 
   const [date, setDate] = useState(new Date());
 
@@ -34,16 +34,20 @@ export default function InputTab({ closeInput }) {
   }
 
   async function sendData() {
-    if(taskName){
-    const data = {
-      accountId: account.sub,
-      taskName: taskName,
-      details: taskDetails,
-      star: star,
-      listId: "My Tasks",
-      date: date,
-    };
-    await sendTask(data);}
+    if (taskName) {
+      const data = {
+        accountId: account.sub,
+        taskName: taskName,
+        details: taskDetails,
+        star: star,
+        listId: "My Tasks",
+        date: date,
+        complete: false,
+      };
+      setSpinner(true);
+      await sendTask(data);
+      setSpinner(false)
+    }
     closeInput();
     setTaskFlag((x) => !x);
   }

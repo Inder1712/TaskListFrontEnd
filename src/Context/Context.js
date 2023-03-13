@@ -9,11 +9,13 @@ const AccountProvider=({children})=>{
     const [account,setAccount]=useState()
     const [listName,setListName]=useState("true")
     const [taskFlag,setTaskFlag]=useState(false)
+    const [spinner,setSpinner]=useState(false)
     return(
         <AccountContext.Provider value={{
             account,setAccount,
             taskFlag,setTaskFlag,
-            listName,setListName
+            listName,setListName,
+            spinner,setSpinner
         }}>
             {children}
 
